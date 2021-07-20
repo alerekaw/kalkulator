@@ -1,0 +1,142 @@
+body
+{
+    background-color:slategray;
+    font-size: 30px;
+    font-weight: 700;
+}
+
+#pojemnik
+{
+    background-color:slategray;
+    width: 360px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 100px;
+}
+.wynik
+{
+    grid-column: 1/-1;
+    display: flex;
+    flex-direction: column;
+    background-color: thistle;
+    border: 20px solid lightcyan;
+    border-bottom: none;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    width: 320px;
+    height: 100px;
+    padding: 20px 20px 0px 20px;
+    font-family: 'Orbitron', sans-serif;
+    letter-spacing: 3px;
+    color: #4F4F5D;
+    align-items: flex-end;
+}
+
+.pierwsza_liczba{
+    font-size: 20px;
+    position: absolute;
+}
+
+.druga_liczba{
+    font-size: 30px;
+}
+
+#klawiatura
+{
+    background-color: gainsboro;
+    border: 20px solid lightcyan;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    width: inherit;
+    height: 290px;
+    text-align: center;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 20px;
+    padding: auto;
+}
+.cyfra
+{
+    width: 90px;
+    height: 60px;
+    background-color: aliceblue;
+    font-size: 20px;
+    font-weight: bolder;
+    text-decoration: none;
+    border: 1px solid lightsteelblue;
+    color: darkslategray;
+    box-shadow: 0 0 1em lightsteelblue;
+
+}
+.cyfra:hover{
+    background-color: white;
+    color: slategray;
+}
+.operator
+{
+    width: 90px;
+    height: 60px;
+    background-color:paleturquoise;
+    font-size: 20px;
+    font-weight: bolder;
+    text-decoration: none;
+    border: 1px solid lightsteelblue;
+    color: darkslategray;
+    box-shadow: 0 0 1em lightsteelblue;
+}
+
+.operator:hover{
+    background-color: lightcyan;
+    color: slategray;
+
+}
+
+.rowne{
+    width: 90px;
+    height: 60px;
+    background-color: paleturquoise;
+    font-size: 20px;
+    font-weight: bolder;
+    text-decoration: none;
+    border: 1px solid lightsteelblue;
+    color: darkslategray;
+    box-shadow: 0 0 1em lightsteelblue;
+}
+
+.rowne:hover {
+    background-color: lightcyan;
+    color: slategray;
+}
+
+.usun{
+    width: 180px;
+    height: 50px;
+    font-size: 20px;
+    font-weight: bolder;
+    background-color:azure;
+    text-decoration: none;
+    border: 1px solid lightsteelblue;
+    color: darkslategray;
+    box-shadow: 0 0 1em lightsteelblue;
+}
+
+.usun:hover {
+    background-color: white;
+    color: slategray;
+}
+
+.wyczysc{
+    width: 180px;
+    height: 50px;
+    font-size: 20px;
+    font-weight: bolder;
+    background-color:azure;
+    text-decoration: none;
+    border: 1px solid lightsteelblue;
+    color: darkslategray;
+    box-shadow: 0 0 1em lightsteelblue;
+}
+
+.wyczysc:hover {
+    background-color: white;
+    color: slategray;
+}

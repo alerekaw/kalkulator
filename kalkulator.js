@@ -88,19 +88,32 @@ const usunLiczbe = () => {
 	liczba2 = liczba2.toString().slice(0, -1)
 }
 
+const decimalPlaces = 9
+	const factorOfTen = 9
+
+const round = (liczba2, decimalPlaces) => {
+		const factorOfTen = Math.pow(10, decimalPlaces)
+		return Math.round(liczba2 * factorOfTen)/factorOfTen
+}
+
 const wyswietl = () => {
 	const dlugosc = liczba2.length
 	if (dlugosc > 11){
 		return
 	}
 
-	wynik2.innerText = liczba2
+	if (liczba2 != '') {
+		wynik2.innerText = round(liczba2, decimalPlaces)
+	} else {
+		wynik2.innerText = ''
+	}
 
 	if (operacja != null) {
-		wynik1.innerText = liczba1 + operacja  
+		wynik1.innerText = round(liczba1, decimalPlaces) + operacja  
 	} else {
 		wynik1.innerText = ''
 	}
+
 }
 
 const wyczysc = () => {

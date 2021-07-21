@@ -102,6 +102,11 @@ const wyswietl = () => {
 		return
 	}
 
+	if (liczba2 === "ERROR"){
+		wynik2.innerText = liczba2;
+		wynik1.innerText = '';
+		return;
+	}
 	if (liczba2 != '') {
 		wynik2.innerText = round(liczba2, decimalPlaces)
 	} else {

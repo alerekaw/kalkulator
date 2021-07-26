@@ -5,7 +5,7 @@ body
     font-weight: 700;
 }
 
-#pojemnik
+.container
 {
     background-color:slategray;
     width: 360px;
@@ -13,7 +13,7 @@ body
     margin-right: auto;
     margin-top: 100px;
 }
-.wynik
+.result
 {
     grid-column: 1/-1;
     display: flex;
@@ -32,16 +32,16 @@ body
     align-items: flex-end;
 }
 
-.pierwsza_liczba{
+.first_number{
     font-size: 20px;
     position: absolute;
 }
 
-.druga_liczba{
+.second_number{
     font-size: 30px;
 }
 
-#klawiatura
+.keyboard
 {
     background-color: gainsboro;
     border: 20px solid lightcyan;
@@ -54,7 +54,7 @@ body
     font-size: 20px;
     padding: auto;
 }
-.cyfra
+.number
 {
     width: 90px;
     height: 60px;
@@ -67,7 +67,7 @@ body
     box-shadow: 0 0 1em lightsteelblue;
 
 }
-.cyfra:hover{
+.number:hover{
     background-color: white;
     color: slategray;
 }
@@ -107,7 +107,7 @@ body
     color: slategray;
 }
 
-.usun{
+.delete{
     width: 180px;
     height: 50px;
     font-size: 20px;
@@ -119,12 +119,12 @@ body
     box-shadow: 0 0 1em lightsteelblue;
 }
 
-.usun:hover {
+.delete:hover {
     background-color: white;
     color: slategray;
 }
 
-.wyczysc{
+.clean_all{
     width: 180px;
     height: 50px;
     font-size: 20px;
@@ -136,7 +136,7 @@ body
     box-shadow: 0 0 1em lightsteelblue;
 }
 
-.wyczysc:hover {
+.clean_all:hover {
     background-color: white;
     color: slategray;
 }

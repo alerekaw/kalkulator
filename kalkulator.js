@@ -1,10 +1,10 @@
-const liczby = document.querySelectorAll('.cyfra')
-const operatory = document.querySelectorAll('.operator')
+const numbers = document.querySelectorAll('.number')
+const operators = document.querySelectorAll('.operator')
 const rownosc = document.querySelector('.rowne')
-const wynik1 = document.querySelector('.pierwsza_liczba')
-const wynik2 = document.querySelector('.druga_liczba')
-const del = document.querySelector('.usun')
-const ac = document.querySelector('.wyczysc')
+const result1 = document.querySelector('.first_number')
+const result2 = document.querySelector('.second_number')
+const del = document.querySelector('.delete')
+const ac = document.querySelector('.clean_all')
 
 
 
@@ -37,7 +37,7 @@ const oblicz = () => {
 		break
 		case '÷':
 			if (l2 === 0){
-				document.getElementById('wynik').style.backgroundColor = 'lightcoral'
+				document.getElementById('result').style.backgroundColor = 'lightcoral'
 				liczba1 = ''
 				operacja = undefined
 				liczba2 = 'ERROR'
@@ -60,7 +60,7 @@ const wybierzOperacje = (operator) => {
 		return
 	}
 	if (liczba1 !== '') {
-		const l1 = wynik1.innerText
+		const l1 = result1.innerText
 		if (liczba2.toString() === '0' && l1.includes('÷') ) {
 			return
 		}
@@ -73,18 +73,18 @@ const wybierzOperacje = (operator) => {
 }
 
 
-const wybierzlLiczbe = (cyfra) => {
-	if (cyfra === '.') {
+const wybierzlLiczbe = (number) => {
+	if (number === '.') {
 		if (liczba2.includes('.')) {
 			return
 		}
 	}
 	
-	liczba2 = liczba2.toString() + cyfra.toString()
+	liczba2 = liczba2.toString() + number.toString()
 
 }
 
-const usunLiczbe = () => {
+const deleteLiczbe = () => {
 	liczba2 = liczba2.toString().slice(0, -1)
 }
 
@@ -103,40 +103,40 @@ const wyswietl = () => {
 	}
 
 	if (liczba2 === "ERROR"){
-		wynik2.innerText = liczba2;
-		wynik1.innerText = '';
+		result2.innerText = liczba2;
+		result1.innerText = '';
 		return;
 	}
 	if (liczba2 != '') {
-		wynik2.innerText = round(liczba2, decimalPlaces)
+		result2.innerText = round(liczba2, decimalPlaces)
 	} else {
-		wynik2.innerText = ''
+		result2.innerText = ''
 	}
 
 	if (operacja != null) {
-		wynik1.innerText = round(liczba1, decimalPlaces) + operacja  
+		result1.innerText = round(liczba1, decimalPlaces) + operacja  
 	} else {
-		wynik1.innerText = ''
+		result1.innerText = ''
 	}
 
 }
 
-const wyczysc = () => {
-	document.getElementById('wynik').style.backgroundColor = 'thistle'
+const clean_all = () => {
+	document.getElementById('result').style.backgroundColor = 'thistle'
 	liczba1 = ''
 	operacja = undefined
 	liczba2 = ''
 }
 
-liczby.forEach((cyfra) => {
-	cyfra.addEventListener('click', () =>{
-		wybierzlLiczbe(cyfra.innerText)
+numbers.forEach((number) => {
+	number.addEventListener('click', () =>{
+		wybierzlLiczbe(number.innerText)
 		wyswietl()
 
 	})
 })
 
-operatory.forEach((operator) => {
+operators.forEach((operator) => {
 	operator.addEventListener('click', () => {
 		wybierzOperacje(operator.innerText);
 		wyswietl()
@@ -150,11 +150,11 @@ rownosc.addEventListener('click', () => {
 )
 
 del.addEventListener ('click', () => {
-	usunLiczbe();
+	deleteLiczbe();
 	wyswietl();
 })
 
 ac.addEventListener ('click', () => {
-	wyczysc()
+	clean_all()
 	wyswietl()
 })

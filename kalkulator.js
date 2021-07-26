@@ -1,6 +1,6 @@
 const numbers = document.querySelectorAll('.number')
 const operators = document.querySelectorAll('.operator')
-const rownosc = document.querySelector('.rowne')
+const equal = document.querySelector('.equal')
 const result1 = document.querySelector('.first_number')
 const result2 = document.querySelector('.second_number')
 const del = document.querySelector('.delete')
@@ -8,113 +8,113 @@ const ac = document.querySelector('.clean_all')
 
 
 
-let liczba2 = ''
-let operacja = undefined
-let liczba1 = ''
+let number2 = ''
+let operation = undefined
+let number1 = ''
 
-const oblicz = () => {
-	let dzialanie
-	if (!liczba1 || !liczba2){
+const calculate = () => {
+	let action
+	if (!number1 || !number2){
 		return
 	}
 
-	const l2 = parseFloat(liczba2)
-	const l1 = parseFloat(liczba1)
+	const n2 = parseFloat(number2)
+	const n1 = parseFloat(number1)
 
-	if(isNaN(l1) || isNaN(l2)){
+	if(isNaN(n1) || isNaN(n2)){
 		return
 	}
 
-	switch (operacja) {
+	switch (operation) {
 		case '+':
-			dzialanie = l1 + l2
+			action = n1 + n2
 		break
 		case '-':
-			dzialanie = l1 - l2
+			action = n1 - n2
 		break
 		case 'x':
-			dzialanie = l1 * l2
+			action = n1 * n2
 		break
 		case '÷':
-			if (l2 === 0){
+			if (n2 === 0){
 				document.getElementById('result').style.backgroundColor = 'lightcoral'
-				liczba1 = ''
-				operacja = undefined
-				liczba2 = 'ERROR'
+				number1 = ''
+				operation = undefined
+				number2 = 'ERROR'
 				return
 			}
-			dzialanie = l1 / l2
+			action = n1 / n2
 		break
 		default:
 		return
 
 	}
-	liczba2 = dzialanie
-	operacja = undefined
-	liczba1 = ''
+	number2 = action
+	operation = undefined
+	number1 = ''
 
 }
 
-const wybierzOperacje = (operator) => {
-	if (liczba2 ==='') {
+const chooseTheOperation = (operator) => {
+	if (number2 ==='') {
 		return
 	}
-	if (liczba1 !== '') {
-		const l1 = result1.innerText
-		if (liczba2.toString() === '0' && l1.includes('÷') ) {
+	if (number1 !== '') {
+		const n1 = result1.innerText
+		if (number2.toString() === '0' && n1.includes('÷') ) {
 			return
 		}
 		
-		oblicz()
+		calculate()
 	}
-	operacja = operator
-	liczba1 = liczba2
-	liczba2 = ''
+	operation = operator
+	number1 = number2
+	number2 = ''
 }
 
 
-const wybierzlLiczbe = (number) => {
+const chooseTheNumber = (number) => {
 	if (number === '.') {
-		if (liczba2.includes('.')) {
+		if (number2.includes('.')) {
 			return
 		}
 	}
 	
-	liczba2 = liczba2.toString() + number.toString()
+	number2 = number2.toString() + number.toString()
 
 }
 
-const deleteLiczbe = () => {
-	liczba2 = liczba2.toString().slice(0, -1)
+const deleteTheNumber = () => {
+	number2 = number2.toString().slice(0, -1)
 }
 
 const decimalPlaces = 9
-	const factorOfTen = 9
+const factorOfTen = 9
 
-const round = (liczba2, decimalPlaces) => {
+const round = (number2, decimalPlaces) => {
 		const factorOfTen = Math.pow(10, decimalPlaces)
-		return Math.round(liczba2 * factorOfTen)/factorOfTen
+		return Math.round(number2 * factorOfTen)/factorOfTen
 }
 
-const wyswietl = () => {
-	const dlugosc = liczba2.length
-	if (dlugosc > 11){
+const display = () => {
+	const length = number2.length
+	if (length > 11){
 		return
 	}
 
-	if (liczba2 === "ERROR"){
-		result2.innerText = liczba2;
+	if (number2 === "ERROR"){
+		result2.innerText = number2;
 		result1.innerText = '';
 		return;
 	}
-	if (liczba2 != '') {
-		result2.innerText = round(liczba2, decimalPlaces)
+	if (number2 != '') {
+		result2.innerText = round(number2, decimalPlaces)
 	} else {
 		result2.innerText = ''
 	}
 
-	if (operacja != null) {
-		result1.innerText = round(liczba1, decimalPlaces) + operacja  
+	if (operation != null) {
+		result1.innerText = round(number1, decimalPlaces) + operation  
 	} else {
 		result1.innerText = ''
 	}
@@ -123,38 +123,38 @@ const wyswietl = () => {
 
 const clean_all = () => {
 	document.getElementById('result').style.backgroundColor = 'thistle'
-	liczba1 = ''
-	operacja = undefined
-	liczba2 = ''
+	number1 = ''
+	operation = undefined
+	number2 = ''
 }
 
 numbers.forEach((number) => {
 	number.addEventListener('click', () =>{
-		wybierzlLiczbe(number.innerText)
-		wyswietl()
+		chooseTheNumber(number.innerText)
+		display()
 
 	})
 })
 
 operators.forEach((operator) => {
 	operator.addEventListener('click', () => {
-		wybierzOperacje(operator.innerText);
-		wyswietl()
+		chooseTheOperation(operator.innerText);
+		display()
 	})
 })
 
-rownosc.addEventListener('click', () => {
-	oblicz();
-	wyswietl()
+equal.addEventListener('click', () => {
+	calculate();
+	display()
 }
 )
 
 del.addEventListener ('click', () => {
-	deleteLiczbe();
-	wyswietl();
+	deleteTheNumber();
+	display();
 })
 
 ac.addEventListener ('click', () => {
 	clean_all()
-	wyswietl()
+	display()
 })

@@ -90,7 +90,7 @@ body
 
 }
 
-.rowne{
+.equal{
     width: 90px;
     height: 60px;
     background-color: paleturquoise;
@@ -102,7 +102,7 @@ body
     box-shadow: 0 0 1em lightsteelblue;
 }
 
-.rowne:hover {
+.equal:hover {
     background-color: lightcyan;
     color: slategray;
 }

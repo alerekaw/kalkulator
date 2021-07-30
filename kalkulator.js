@@ -14,16 +14,13 @@ let liczba1 = ''
 
 const oblicz = () => {
 	let dzialanie
-	if (!liczba1 || !liczba2){
-		return
-	}
+
+	if (!liczba1 || !liczba2) return
 
 	const l2 = parseFloat(liczba2)
 	const l1 = parseFloat(liczba1)
 
-	if(isNaN(l1) || isNaN(l2)){
-		return
-	}
+	if(isNaN(l1) || isNaN(l2)) return
 
 	switch (operacja) {
 		case '+':
@@ -56,17 +53,14 @@ const oblicz = () => {
 }
 
 const wybierzOperacje = (operator) => {
-	if (liczba2 ==='') {
-		return
-	}
+	if (liczba2 ==='') return
+
 	if (liczba1 !== '') {
 		const l1 = wynik1.innerText
-		if (liczba2.toString() === '0' && l1.includes('÷') ) {
-			return
-		}
-		
+		if (liczba2.toString() === '0' && l1.includes('÷') ) return
 		oblicz()
 	}
+	
 	operacja = operator
 	liczba1 = liczba2
 	liczba2 = ''
@@ -74,14 +68,8 @@ const wybierzOperacje = (operator) => {
 
 
 const wybierzlLiczbe = (cyfra) => {
-	if (cyfra === '.') {
-		if (liczba2.includes('.')) {
-			return
-		}
-	}
-	
+	if ((cyfra ==='.') && (liczba2.includes('.'))) return 
 	liczba2 = liczba2.toString() + cyfra.toString()
-
 }
 
 const usunLiczbe = () => {
@@ -98,26 +86,16 @@ const round = (liczba2, decimalPlaces) => {
 
 const wyswietl = () => {
 	const dlugosc = liczba2.length
-	if (dlugosc > 11){
-		return
-	}
+	if (dlugosc > 11) return
 
 	if (liczba2 === "ERROR"){
 		wynik2.innerText = liczba2;
 		wynik1.innerText = '';
 		return;
 	}
-	if (liczba2 != '') {
-		wynik2.innerText = round(liczba2, decimalPlaces)
-	} else {
-		wynik2.innerText = ''
-	}
+	liczba2!='' ? wynik2.innerText = round(liczba2, decimalPlaces) : wynik2.innerText = ''
 
-	if (operacja != null) {
-		wynik1.innerText = round(liczba1, decimalPlaces) + operacja  
-	} else {
-		wynik1.innerText = ''
-	}
+	operacja!=null ? wynik1.innerText = round(liczba1, decimalPlaces) + operacja : wynik1.innerText = ''
 
 }
 
